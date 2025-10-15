@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\MH git zadania\\Nowy folder\\qwerty\\test_chyba\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{253D530D-2B17-4E98-B6FB-D7947F48919E}|test_chyba\\test_chyba.vcxproj|D:\\MH git zadania\\Nowy folder\\qwerty\\test_chyba\\test_chyba\\test_chyba.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253D530D-2B17-4E98-B6FB-D7947F48919E}|test_chyba\\test_chyba.vcxproj|solutionrelative:test_chyba\\test_chyba.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "test_chyba.cpp",
+              "DocumentMoniker": "D:\\MH git zadania\\Nowy folder\\qwerty\\test_chyba\\test_chyba\\test_chyba.cpp",
+              "RelativeDocumentMoniker": "test_chyba\\test_chyba.cpp",
+              "ToolTip": "D:\\MH git zadania\\Nowy folder\\qwerty\\test_chyba\\test_chyba\\test_chyba.cpp",
+              "RelativeToolTip": "test_chyba\\test_chyba.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-10-15T07:12:19.297Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

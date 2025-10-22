@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+//sqrt
+static void z1() {
+    double x, y,z,q,w,e,r;
+    cout << "\nwartosc x = ";
+    cin >> x;
+    cout << "\nwartosc y = ";
+    cin >> y;
+    q = x * x;
+    w = y * y;
+    if (z <= 0) {
+        cout << "\nzadanie nie mozna wykonac gdyz przynajmniej jedna z podanych liczb byla mniejsza niz 0\n";
+    }
+    else if (x <= 0) {
+        cout << "\nzadanie nie mozna wykonac gdyz przynajmniej jedna z podanych liczb byla mniejsza niz 0\n";
+    }
+    else {
+        z = sqrt(q + w);
+        cout << "z1(wartosc z = " << z << ")\n";
+    }
+}
+static void z2() {
+    double x, y,z, q, w, e, r;
+    cout << "\nwartosc z = ";
+    cin >> z;
+    cout << "\nwartosc x = ";
+    cin >> x;
+    if(z <= 0){
+    cout << "\nzadanie nie mozna wykonac gdyz przynajmniej jedna z podanych liczb byla mniejsza niz 0\n";
+    }
+    else if (x <= 0) {
+        cout << "\nzadanie nie mozna wykonac gdyz przynajmniej jedna z podanych liczb byla mniejsza niz 0\n";
+    }
+    else if(z > x){
+    q = x * x;
+    e = z * z;    
+    y = sqrt(e - q);
+    cout << "z2(wartosc y = " << y << ")\n";}
+    else if(x>z){
+    e = x * x;
+    q = z * z;
+    y = sqrt(e - q);
+    cout << "z2(wartosc y = " << y << ")\n";}
+}
+int main()
+{
+    int a = 1;
+    while(true)
+    {
+        cout << "1. z1(dwie przyprostokatne)\n 2. z2(przeciwprostokatna)\n";
+        cin >> a;
+    switch (a) 
+     {
+    case 1:z1(); break;
+    case 2:z2(); break;
+     }
+    }
+    /*if (a == 1) {}
+    if (a == 2) {}*/
+}

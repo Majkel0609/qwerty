@@ -2,7 +2,7 @@
 using namespace std;
 //sqrt
 static void z1() {
-    double x, y, z, q, w, e, r;
+    double x, y, z, q, w;
     cout << "\nWartosc x = ";
     cin >> x;
     cout << "\nWartosc y = ";
@@ -21,7 +21,7 @@ static void z1() {
     }
 }
 static void z2() {
-    double x, y, z, q, w, e, r;
+    double x, y, z, q, w;
     cout << "\nWartosc z = ";
     cin >> z;
     cout << "\nWartosc x = ";
@@ -37,15 +37,38 @@ static void z2() {
     }
     else if (z > x) {
         q = x * x;
-        e = z * z;
-        y = sqrt(e - q);
+        w = z * z;
+        y = sqrt(w - q);
         cout << "z2(Wartosc y = " << y << ")\n";
     }
     else if (x > z) {
-        e = x * x;
+        w = x * x;
         q = z * z;
-        y = sqrt(e - q);
+        y = sqrt(w - q);
         cout << "z2(Wartosc y = " << y << ")\n";
+    }
+}
+static void z3() {
+    double x, y, z, q, w;
+    cout << "\nWartosc x = ";
+    cin >> x;
+    cout << "\nWartosc y = ";
+    cin >> y;
+    cout << "\nWartosc z = ";
+    cin >> z;
+    if (x + y <= z) {
+        cout << "\nPodany trojkat nie istnieje\n";
+    }
+    else if (y + z <= x) {
+        cout << "\nPodany trojkat nie istnieje\n";
+    }
+    else if (x + z <= y) {
+        cout << "\nPodany trojkat nie istnieje\n";
+    }
+    else {
+        q = (x + y + z) / 2;
+        w = sqrt(q * (q-z)*(q-x)*(q-y));
+        cout << "\nPole powierzchni wynosi " << w <<"\n";
     }
 }
 int main()
@@ -53,14 +76,13 @@ int main()
     int a = 1;
     while (true)
     {
-        cout << "1. z1(Dwie Przyprostokatne)\n2. z2(Przeciwprostokatna)\n";
+        cout << "1. z1(Dwie Przyprostokatne)\n2. z2(Przeciwprostokatna)\n3. z3(Pole powierzchni)\n";
         cin >> a;
         switch (a)
         {
         case 1:z1(); break;
         case 2:z2(); break;
+        case 3:z3(); break;
         }
     }
-    /*if (a == 1) {}
-    if (a == 2) {}*/
 }

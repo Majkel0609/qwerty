@@ -1,0 +1,77 @@
+#include <iostream>
+using namespace std;
+//sqrt
+static void z1() {
+    double x, y, z, q, w;
+    cout << "\nWartosc x = ";
+    cin >> x;
+    cout << "\nWartosc y = ";
+    cin >> y;
+    z = x + y;
+    cout << "Wynik wynosi "<< z << endl;
+}
+static void z2() {
+    double x, y, z, q, w;
+    cout << "\nWartosc x = ";
+    cin >> x;
+    cout << "\nWartosc y = ";
+    cin >> y;
+    z = x - y;
+    cout << "Wynik wynosi " << z << endl;
+}
+static void z3() {
+    double x, y, z, q, w;
+    cout << "\nWartosc x = ";
+    cin >> x;
+    cout << "\nWartosc y = ";
+    cin >> y;
+    z = x * y;
+    cout << "Wynik wynosi " << z << endl;
+}
+static void z4() {
+    double x, y, z, q, w;
+    cout << "\nWartosc x = ";
+    cin >> x;
+    cout << "\nWartosc y = ";
+    cin >> y;
+    if (y == 0) {
+        cout << "Nie mozna dzielic przez zero";
+    }
+    else {
+        z = x / y;
+        cout << "Wynik wynosi " << z << endl;
+    }
+}
+static void z5() {
+    double x, y, z, q, w;
+    cout << "\nWartosc x = ";
+    cin >> x;
+    cout << "\nWartosc y = ";
+    cin >> y;
+    if (y == 0) {
+        cout << "Nie mozna dzielic przez zero";
+    }
+    else {
+        z = x / y;
+        cout << "Wynik wynosi " << z << endl;
+        //q = x % y;
+        //cout << "reszta wynosi " << q << endl;
+    }
+}
+int main()
+{
+    int a = 1;
+    while (true)
+    {
+        cout << "1. z1(Dodawanie)\n2. z2(odejmowanie)\n3. z3(mnozenie)\n4. z4(dzielenie)\n5. z5(dzielenie z reszta(wip))\n";
+        cin >> a;
+        switch (a)
+        {
+        case 1:z1(); break;
+        case 2:z2(); break;
+        case 3:z3(); break;
+        case 4:z4(); break;
+        case 5:z5(); break;
+        }
+    }
+}

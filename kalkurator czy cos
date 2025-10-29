@@ -43,7 +43,7 @@ static void z4() {
     }
 }
 static void z5() {
-    double x, y, z, q, w;
+    int x, y, z, q, w;
     cout << "\nWartosc x = ";
     cin >> x;
     cout << "\nWartosc y = ";
@@ -54,8 +54,8 @@ static void z5() {
     else {
         z = x / y;
         cout << "Wynik wynosi " << z << endl;
-        //q = x % y;
-        //cout << "reszta wynosi " << q << endl;
+        q = x % y;
+        cout << "reszta wynosi " << q << endl;
     }
 }
 int main()
@@ -63,7 +63,7 @@ int main()
     int a = 1;
     while (true)
     {
-        cout << "1. z1(Dodawanie)\n2. z2(odejmowanie)\n3. z3(mnozenie)\n4. z4(dzielenie)\n5. z5(dzielenie z reszta(wip))\n";
+        cout << "1. z1(Dodawanie)\n2. z2(odejmowanie)\n3. z3(mnozenie)\n4. z4(dzielenie)\n5. z5(dzielenie z reszta)\n";
         cin >> a;
         switch (a)
         {

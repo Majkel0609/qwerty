@@ -58,20 +58,46 @@ static void z5() {
         cout << "reszta wynosi " << q << endl;
     }
 }
+static void z6() {
+    double a, b, c, d, q, w;
+    cout << "\nWartosc a = ";
+    cin >> a;
+    cout << "\nWartosc b = ";
+    cin >> b;
+    cout << "\nWartosc c = ";
+    cin >> c;
+    cout << "\nWartosc d = ";
+    cin >> d;
+    if (a + b <= 0)
+    {
+        cout << "suma a i b musi byc wieksza niz 0";
+    }
+    else if (d <= 0) {
+        cout << "d musi byc wieksze niz 0";
+    }
+    else if (b == 4) {
+        cout << "b musi byc rozne niz 4";
+    }
+    else {
+        q = ((sqrt(a + b) / (c * c)) - ((sqrt(d) + 5) / (b - 4)));
+    }
+    cout << "Wynik wynosi " << q << endl;
+}
 int main()
 {
-    int a = 1;
+    int m = 1;
     while (true)
     {
         cout << "1. z1(Dodawanie)\n2. z2(odejmowanie)\n3. z3(mnozenie)\n4. z4(dzielenie)\n5. z5(dzielenie z reszta)\n";
-        cin >> a;
-        switch (a)
+        cin >> m;
+        switch (m)
         {
         case 1:z1(); break;
         case 2:z2(); break;
         case 3:z3(); break;
         case 4:z4(); break;
         case 5:z5(); break;
+        case 6:z6(); break;
         }
     }
 }

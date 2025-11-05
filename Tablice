@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+   /* const int maxSize0 = 100;
+    double tab0[maxSize0] = { 0 };
+    int size0;
+    do {
+        cout << "N = ";
+        cin >> size0;
+    } while (size0 < 1 || size>maxSize0);
+    for (int i = 0; i < size0; ++i) {
+        cin >> tab0[i];
+    }
+    int big = tab0[0], small = tab0[0], pozycjaB = 0, pozycjaS = 0;
+
+
+    for (int i = 0; i < size0; ++i) {
+        if (big < tab0[i]) {
+            big = tab0[i];
+            pozycjaB = i;
+        }
+        if (small > tab0[i]) {
+            small = tab0[i];
+            pozycjaS = i;
+        }
+    }
+    cout << "big = " << big << endl;
+    cout << "pozycja dla big = " << pozycjaB << endl;
+    cout << "small = " << small << endl;
+    cout << "pozycja dla small = " << pozycjaS << endl;*/
+    const int maxSize1 = 100;
+    double tab1[maxSize1][maxSize1] = { 0 };
+    int cols,rows;
+    do
+    {
+        cout << "LK = ";
+        cin >> cols;
+    } while (cols < 1 || cols>maxSize1);
+    do
+    {
+        cout << "LW = ";
+        cin >> rows;
+    } while (rows < 1 || rows>maxSize1);
+    for (int i = 0; i < rows; ++i) 
+    {
+        for (int j = 0; j < cols; ++j) 
+        {
+            cin >> tab1[i][j];
+        }
+        cout << endl;
+    }
+        int big = tab1[0][0], small = tab1[0][0], pozycjaBR = 0, pozycjaBC = 0, pozycjaSR = 0, pozycjaSC = 0;
+
+        for (int i = 0; i < rows; ++i) 
+        {
+            for (int j = 0; j < cols; ++j) 
+            {
+                if (big < tab1[i][j]) 
+                {
+                    big = tab1[i][j];
+                    pozycjaBR = i;
+                    pozycjaBC = j;
+                }
+                if (small > tab1[i][j]) 
+                {
+                    small = tab1[i][j];
+                    pozycjaSR = i;
+                    pozycjaSC = j;
+                }
+            }
+        
+        }
+
+
+       for (int i = 0; i < rows; ++i) 
+    {
+        cout << "| ";
+        for (int j = 0; j < cols; ++j) 
+        {
+            cout << tab1[i][j]<<" | ";
+        }
+        cout << endl;
+    }
+    
+      
+}

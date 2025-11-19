@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-static unsigned int GetSize() {
+static unsigned int GetSize(const char*const text = "") {//GetSize()
     unsigned int size;
     do {
-        cout << "podaj rozmiar";
+        cout << text;
         cin >> size;
     } while (size < 1);
     return size;
@@ -24,26 +24,46 @@ static void DeleteMatrix(double** matrix, const unsigned int rows) {
     delete[] matrix;
 }
 
-static void ReadMatrix(double** matrix, const unsigned int rows, const unsigned int cols) {
+static void ReadMatrix(double** matrix, const unsigned int rows, const unsigned int cols,const char*const text = "") {
     for (unsigned int i = 0; i < rows; ++i) {
         for (unsigned int j = 0; j < cols; ++j) {
-            cout << "m[" << i + 1 << "][" << j + 1 << "] = ";
+            cout << text << "[" << i + 1 << "][" << j + 1 << "] = ";
             cin >> matrix[i][j];
         }
     }
 }
 
+static void ShowMatrix(double** matrix, const unsigned int rows, const unsigned int cols) {
+    for (unsigned int i = 0; i < rows; ++i) {
+        for (unsigned int j = 0; j < cols; ++j) {
+            cout <<" | " << matrix[i][j];
+        }
+        cout << " |\n";
+    }
+}
+
 static void p2() {
-    unsigned int rows = GetSize();
-    unsigned int cols = GetSize();
+    unsigned int rows = GetSize("lw + ");//Getsize()
+    unsigned int cols = GetSize("lk = ");
     
     auto m = CreateMatrix(rows, cols);
-    ReadMatrix(m, rows, cols);
+    ReadMatrix(m, rows, cols,"a");//(m,rows,cols)
+
+    ShowMatrix(m, rows, cols);
 
     DeleteMatrix(m, rows);
 }
 
 int main()
 {
-    
+    p2();
+
+
+
+
+
+
+
+
+
 }

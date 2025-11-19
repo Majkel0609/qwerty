@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+static unsigned int GetSize() {
+    unsigned int size;
+    do {
+        cout << "podaj rozmiar";
+        cin >> size;
+    } while (size < 1);
+    return size;
+}
+static double** CreateMatrix(const unsigned int rows, const unsigned int cols) {
+    double** matrix = new double* [rows];
+    for (unsigned int i = 0; i < rows; ++i) {
+        matrix[i] = new double[cols];
+    }
+    return matrix;
+}
+
+static void DeleteMatrix(double** matrix, const unsigned int rows) {
+    for (unsigned int i = 0; i < rows; ++i) {
+        delete[] matrix[i];
+    }
+    delete[] matrix;
+}
+
+static void ReadMatrix(double** matrix, const unsigned int rows, const unsigned int cols) {
+    for (unsigned int i = 0; i < rows; ++i) {
+        for (unsigned int j = 0; j < cols; ++j) {
+            cout << "m[" << i + 1 << "][" << j + 1 << "] = ";
+            cin >> matrix[i][j];
+        }
+    }
+}
+
+static void p2() {
+    unsigned int rows = GetSize();
+    unsigned int cols = GetSize();
+    
+    auto m = CreateMatrix(rows, cols);
+    ReadMatrix(m, rows, cols);
+
+    DeleteMatrix(m, rows);
+}
+
+int main()
+{
+    
+}

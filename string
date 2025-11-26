@@ -1,0 +1,112 @@
+#include <iostream>
+#include <string>
+#include <string.h>
+using namespace std;
+
+static bool test(const char* password, const char password1[]);
+static string ToUpper(const string& text);
+static void ToUpperInPlace(string& text);
+
+static void p1() {
+    char text[] = "jakis napis";
+    char buffer[100];
+
+    cout << text << endl;
+    cout << "wprowadz imie";
+    cin >> buffer;
+    cout << buffer;
+
+    unsigned int histogram[256] = { 0 };
+    unsigned int length = strlen(buffer);
+    for (unsigned int i = 0; i < length; ++i) {
+        ++histogram[buffer[i]];
+    }
+    cout << endl << endl;
+    for (unsigned int i = 0; i < 256; ++i) {
+        if (histogram[i] > 0) {
+            cout << (char)i << " " << histogram[i] << endl;
+        }
+    }
+}
+
+static void p2() {
+    const unsigned int MaxSize = 100;
+    char password[MaxSize];
+
+    cout << " haslo ";
+    cin >> password;
+    if (test(password, "123456")) {
+        cout << "Password ok" << endl;
+    }
+    else {
+        cout << "Invalid Password" << endl;
+    }
+}
+
+static void p3() {
+    string buffer;
+    cout << "wprowadz imie ";
+    cin >> buffer;
+    cout << buffer;
+
+    unsigned int histogram[256] = { 0 };
+    for (unsigned int i = 0; i < buffer.length(); ++i) {
+        ++histogram[buffer[i]];
+    }
+    cout << endl << endl;
+    for (unsigned int i = 0; i < 256; ++i) {
+        if (histogram[i] > 0) {
+            cout << (char)i << " " << histogram[i] << endl;
+        }
+    }
+}
+
+static void p4() {
+    string password;
+
+    cout << " haslo ";
+    cin >> password;
+    if (password == "123456") {
+        cout << "Password ok" << endl;
+    }
+    else {
+        cout << "Invalid Password" << endl;
+    }
+}
+
+static void p5() {
+    string text;
+    cout << "Podaj text";
+    cin >> text;
+
+    cout << ToUpper(text) << endl;
+    cout << text << endl;
+    ToUpper(text);
+    cout << text << endl;
+}
+int main()
+{
+    //p1();
+    //p2();
+    //p3();
+    //p4();
+    p5();
+}
+
+static bool test(const char* password, const char password1[]) {
+    return strcmp(password, password1) == 0;
+}
+
+static string ToUpper(const string& text) {
+    string result;
+    for (const char el : text) {
+        result.push_back(toupper(el));
+    }
+    return result;
+}
+
+static void ToUpperInPlace(string& text) {
+    for (char& el : text) {
+        el = toupper(el);
+    }
+}

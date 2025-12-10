@@ -1,0 +1,136 @@
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <sstream>
+using namespace std;
+
+using Vector = vector<double>;
+using Matrix = vector<vector<double>>;
+
+static unsigned int GetSize(const char* const text = "size = ") {
+    unsigned int size;
+    do {
+        cout << text;
+        cin >> size;
+    } while (size < 1);
+    return size;
+}
+
+static void ShowVector(const Vector& v) {
+    for (const double el : v) {
+        cout << el << endl;
+    }
+}
+
+static void ReadVector(Vector& v, const string& text = "") {
+    unsigned int i = 0;
+    for (double& el : v) {
+        cout << text << "[" << ++i << "] = ";
+        cin >> el;
+    }
+}
+
+static void ShowMatrix(const Matrix& m) {
+    for (const auto& row : m) {
+        for (const auto el : row) {
+            cout << el << " ";
+        }cout << endl;
+    }
+}
+
+static void ReadMatrix(Matrix& m, const string& text = "") {
+    unsigned int i = 1, j = 0;
+    for (auto& row : m) {
+        for (auto& el : row) {
+            cout << text << "[" << i << "][" << ++j << "] = ";
+            cin >> el;
+        }
+        j = 0; ++i;
+    }
+}
+
+bool SaveVectorToFile(const Vector& v, const string& filename) {
+    ofstream out(filename);
+    if (out) {
+        for (const auto el : v) {
+            out << el << endl;
+        }out.close();
+        return true;
+    }return false;
+}
+
+static Vector LoadVectorFromFile(const string& filename) {
+    Vector v;
+    ifstream in(filename);
+    if (in) {
+        double el;
+        while (in >> el) {
+            v.push_back(el);
+        }in.close();
+    }return v;
+}
+
+static bool SaveMatrixToFile(const Matrix& m, const string& fileName) {
+    ofstream out(fileName);
+    if (out) {
+        for (const auto& row : m) {
+            for (const auto el : row) {
+                out << el << ";";
+            }out << endl;
+        }
+        out.close();
+        return true;
+    }return false;
+}
+
+static Matrix LoadMatrixFromFile(const string& fileName) {
+    Matrix m;
+    ifstream in(fileName);
+    if (in) {
+        string line;
+        while (getline(in, line)) {
+            m.push_back({});
+            stringstream ss(line);
+            string el;
+            while (getline(ss, el, ';')) {
+                m.back().push_back(stod(el));
+            }
+        }
+        in.close();
+    }
+    return m;
+}
+
+static void p1() {
+    Vector v = Vector(GetSize("size = "));
+    ReadVector(v, "v");
+    ShowVector(v);
+    SaveVectorToFile(v, "vector.txt");
+}
+
+static void p2() {
+    Vector v = LoadVectorFromFile("vector.txt");
+    ShowVector(v);
+}
+
+static void p3() {
+    auto rows = GetSize("rows = ");
+    auto cols = GetSize("cols = ");
+    Matrix m(rows, Vector(cols));
+    ReadMatrix(m, "m");
+    ShowMatrix(m);
+    SaveMatrixToFile(m, "matrix.txt");
+}
+
+static void p4() {
+    auto m = LoadMatrixFromFile("matrix.txt");
+    ShowMatrix(m);
+}
+
+int main()
+{
+    //p1();
+    //p2();
+    //p3();
+    //p4();
+}

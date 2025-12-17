@@ -1,0 +1,95 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <vector>
+using namespace std;
+
+struct PersonalData {
+    string name;
+    string surname;
+    unsigned int age = 0;
+};
+
+static void Show(const PersonalData& pd) {
+    cout << pd.name << " " << pd.surname << " (" << pd.age << ")" << endl;
+}
+
+static void Show(const PersonalData* pd) {
+    cout << pd->name << " " << pd->surname << " (" << pd->age << ")" << endl;
+}
+
+static PersonalData Read() {
+    PersonalData pd;
+    cout << "Imie: ";
+    cin >> pd.name;
+    cout << "Nazwisko: ";
+    cin >> pd.surname;
+    cout << "Wiek: ";
+    cin >> pd.age;
+    return pd;
+}
+
+static void Show(const vector<PersonalData>& pds) {
+    for (const auto& el : pds) {
+        Show(el);
+    }
+}
+
+static vector<PersonalData> Read(const unsigned int size) {
+    vector<PersonalData> pds;
+    for (unsigned int i = 0; i < size; ++i) {
+        pds.push_back(Read());
+    }return pds;
+}
+
+static bool SaveToFile(const vector<PersonalData>& pds, const string& filename) {
+    ofstream out(filename);
+    if (out) {
+        for (const auto& el : pds) {
+            out << el.name << ";" << el.surname << ";" << el.age << endl;
+        }
+        out.close();
+        return true;
+    }return false;
+}
+
+static vector<PersonalData> LoadFromFile(const string& filename) {
+    vector<PersonalData> pds;
+    ifstream in(filename);
+    if (in) {
+        string line;
+        while (getline(in,line)) {
+            PersonalData pd;
+            string age;
+            stringstream ss(line);
+            if (!std::getline(ss, pd.name, ';'))continue;
+            if (!std::getline(ss, pd.surname, ';'))continue;
+            if (!std::getline(ss, age, ';'))continue;
+            pd.age = stoul(age);
+            pds.push_back(pd);
+        }
+        in.close();
+    }return pds;
+}
+
+static void p1() {
+    PersonalData pd{"Adam","Nowak",33};
+    Show(pd);
+    Show(Read());
+}
+
+static void p2() {
+    /*vector<PersonalData> pds{ {"Adam","Nowak",33},{"Jan","Kowalski",55} };
+    Show(pds);
+    SaveToFile(pds, "pd.txt");*/
+    auto x = LoadFromFile("pd.txt");
+    Show(x);
+    /*auto pd(Read(3));
+    Show(pd);*/
+}
+
+int main()
+{
+    p2();
+}
